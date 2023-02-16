@@ -1,0 +1,117 @@
+CONSEGNA
+
+1. Si crei un progetto Java in Eclipse. Al suo interno, si crei un folder data e all'interno del folder si crei il file di testo values.txt contenente dei valori interi separati da andata a capo, come ad esempio:
+		13
+		23
+		-3
+		-10
+		0
+		11
+		13
+		26
+		-8
+		0
+		24
+		2
+		121
+		88
+		16
+		10
+
+2. Si crei il package it.univr.trees dentro src e si inserisca al suo interno la seguente classe, che implementa un albero binario di ricerca, tale cioè da avere in ogni nodo un valore maggiore dei valori alla sua sinistra e minore dei valori alla sua destra:
+
+		package it.univr.trees;
+		
+		import java.io.IOException;
+		
+		public class BTree {
+		  private Node root;
+		
+		  public void add(int value) {
+		    if (root == null)
+		      root = new Node(value);
+		    else
+		      root.add(value);
+		  }
+		
+		  public int size() {
+		    return 0; // TODO
+		  }
+		
+		  public void dumpAsXML(String fileName) throws IOException {
+		    // TODO
+		  }
+		
+		  private static class Node {
+		    private final int value;
+		    private Node left;
+		    private Node right;
+		
+		    public Node(int value) {
+		      this.value = value;
+		    }
+		
+		    private void add(int added) {
+		      if (added < value)
+		        if (left == null)
+		          left = new Node(added);
+		        else
+		          left.add(added);
+		      else if (added > value)
+		        if (right == null)
+		          right = new Node(added);
+		        else
+		          right.add(added);
+		    }
+		  }
+		}
+
+3. Si completi il metodo size() in modo che ritorni il numero di nodi dell'albero.
+
+4. Si completi il metodo dumpAsXML(String fileName) in modo che crei il file di testo con il nome indicato, scrivendo al suo interno una rappresentazione XML dell'albero, del tipo:
+
+		<binary-tree>
+		  <root value="13">
+		    <left-subtree value="-3">
+		      <left-subtree value="-10">
+		        <right-subtree value="-8">
+		        </right-subtree>
+		      </left-subtree>
+		      <right-subtree value="0">
+		        <right-subtree value="11">
+		          <left-subtree value="2">
+		            <right-subtree value="10">
+		            </right-subtree>
+		          </left-subtree>
+		        </right-subtree>
+		      </right-subtree>
+		    </left-subtree>
+		    <right-subtree value="23">
+		      <left-subtree value="16">
+		      </left-subtree>
+		      <right-subtree value="26">
+		        <left-subtree value="24">
+		        </left-subtree>
+		        <right-subtree value="121">
+		          <left-subtree value="88">
+		          </left-subtree>
+		        </right-subtree>
+		      </right-subtree>
+		    </right-subtree>
+		  </root>
+		</binary-tree>
+        
+Questo vuol dire che ciascun nodo viene scritto come segue:
+
+		<tag value = "xyz" >
+		  XML del nodo left [se non è null]
+		  XML del nodo right [se non è null]
+		</tag>
+      
+dove tag può essere root, left-subtree oppure right-subtree.
+
+5. Si scriva una classe Main.java con dentro un metodo main() che esegue le seguenti operazioni:
+	- crea un albero vuoto
+	- legge i valori da data/values.txt e li aggiunge all'albero; se il file non fosse accessibile, deve stampare sul video Il file data/values.txt non esiste e terminare
+	- stampa sul video la dimensione dell'albero (cioè il numero dei suoi nodi)
+	- scrive in un file di testo data/tree.xml la rappresentazione XML dell'albero; se il file non fosse scrivibile, deve stampare sul video Il file data/tree.xml non è scrivibile e terminare.
