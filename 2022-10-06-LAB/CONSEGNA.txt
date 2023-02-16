@@ -1,0 +1,31 @@
+CONSEGNA
+
+1. Si scriva un programma che legge da tastiera un long non negativo n e lo richiede a oltranza se l'utente lo inserisse negativo. Quindi genera n coppie (x,y) fatte da due numeri casuali di tipo double, fra -1 e 1. Per ogni coppia controlla se la coordinata (x,y) sta dentro il cerchio di raggio 1 centrato sull'origine degli assi e in tal caso incrementa una variabile dentro di tipo long. Alla fine stampa il valore della formula dentro * 4 / n senza perdere le cifre che seguono la virgola.
+
+2. Si scriva un programma Java che legge un intero non negativo n da tastiera e stampa una cornice n x n:
+   @@@@@
+   @    @
+   @    @
+   @    @
+   @    @
+   @@@@@
+
+3. Si scriva un programma che stampa, una dopo l'altra, nove cornici, da quella 2 x 2 a quella 10 x 10.
+
+4. Si scriva un programma che stampa 26 volte la cornice 10 x 10, usando ogni volta un carattere alfabetico diverso al posto di '@', dalla 'a' alla 'z'.
+
+5. Si scriva un programma che legge n >= 1 da tastiera e stampa una piramide di altezza n. Per esempio, per n = 4 deve stampare:
+       @
+      @@@
+     @@@@@
+    @@@@@@@
+
+6. Si scriva un programma che legge n >= 1 da tastiera e stampa una piramide di larghezza n. Per esempio, per n = 4 deve stampare:
+
+       @
+      @@
+     @@@
+    @@@@
+     @@@
+      @@
+       @

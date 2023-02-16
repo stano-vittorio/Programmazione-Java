@@ -1,0 +1,50 @@
+CONSEGNA
+
+• Si crei un progetto Eclipse con dentro le sei classi Note, ItalianNote, ItalianNoteWithDuration, EnglishNote, EnglishNoteWithDuration e Duration viste nella lezione precedente, inserite dentro il loro package it.univr.notes.
+
+• Le classi ItalianNote, EnglishNote, ItalianNoteWithDuration ed EnglishNoteWithDuration hanno un metodo equals(Object other) ? La sua implementazione è sensata per tali classi? Cosa si ottiene per esempio confrontando con equals una nota italiana di semitono 5 senza durata con una nota italiana di semitono 5 con durata? Riprogrammate quindi opportunamente equals(Object other) dentro Note, in modo da implementare il seguente algoritmo:
+    se due note hanno semitoni diversi, non sono equals;
+    altrimenti se una nota ha una durata e l'altra non ha una durata, non sono equals;
+    altrimenti se nessuna delle due note ha una durata, sono equals;
+    altrimenti le due note sono equals se e solo se hanno la stessa durata.
+
+Ne consegue che una nota senza durata e una con durata non saranno mai equals; e che una nota italiana e una nota inglese, con durata, possono essere equals, se hanno semitono e durata uguali.
+
+• Le classi ItalianNote, EnglishNote, ItalianNoteWithDuration ed EnglishNoteWithDuration hanno un metodo compareTo(Note other) ? La sua implementazione è sensata per tali classi? Cosa si ottiene per esempio confrontando con compareTo una nota italiana di semitono 5 di durata breve con una nota italiana di semitono 5 con durata croma? Riprogrammate quindi opportunamente compareTo(Note other) dentro Note, in modo da implementare il seguente algoritmo:
+    se due note hanno semitoni diversi, compareTo le mette in ordine crescente per semitono;
+    altrimenti se una nota ha una durata e l'altra non ha una durata, compareTo mette prima la nota senza durata;
+    altrimenti se nessuna delle due note ha una durata, compareTo le considera uguali;
+    altrimenti compareTo mette le due note in ordine crescente per durata.
+
+• Si scriva una classe it.univr.notes.Song che rappresenta una canzone di una sola riga e permette di posizionare delle note sopra il testo (per semplicità, si assuma che non vengano mai posizionate note totalmente o parzialmente sovrapposte):
+
+    public class Song {
+      ...
+      /**
+       * @param lyrics è il testo della canzone (una riga)
+       */
+      public Song(String lyrics) {
+        ...
+      }
+    
+      /**
+       * Posiziona una nota sopra il carattere position dell'unica riga della canzone.
+       */
+      public void place(Note note, int position) {
+        ...
+      }
+    
+      /**
+       * Restituisce una stringa di due righe: nella prima riga sono riportate le note posizionate nella canzone,
+       * nella seconda riga è riportato il testo della canzone.
+       */
+      public String toString() {
+        ...
+      }  
+    }
+
+• Si provi ad eseguire la classe MainSong riportata sotto. Se tutto è corretto, tale esecuzione dovrebbe stampare su video:
+       C#               F#           G#                 C#
+  In the town where I was born lived a man who sailed the sea
+
+•Si completino i commenti JavaDoc per la classe Song, per tutta la sua interfaccia pubblica, usando i tag @author per la classe e @param ed @return per costruttori e metodi (quando applicabili). Si generi il JavaDoc da Eclipse e si esamini il risultato con un browser.
